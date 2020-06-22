@@ -1,55 +1,56 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title><%=  @title ? @title : "Welcome" %> | Book store</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
-    <%= stylesheet_link_tag  'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %> 
-    <%# <%= javascript_tag 'application', 'data-turbolinks-track': 'reload'%> 
+  
   </head>
 
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Book Store</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" >
-    <ul class="navbar-nav ">
       <li class="active">
         <%= link_to 'Home', root_path %>
       </li>
       <li>
         <%= link_to 'About', about_path %>
       </li>
-    </ul>
-      <div class="nav-item dropdown navbar-right">
-        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" >
-          Add New
-        </a>
-        <ul>
-          <li ><%= link_to 'Book', new_book_path %></li>
-          <li ><%= link_to 'Author', new_author_path %></li>
-          <li ><%= link_to 'Category', new_category_path %></li>
-          <li ><%= link_to 'Publisher', new_publisher_path %></li>
-        </ul>
+    </div>
+
+       <div class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Add New
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"><%= link_to 'Book', new_book_path %></a>
+          <a class="dropdown-item" ><%= link_to 'Author', new_author_path %></a>
+          <a class="dropdown-item" ><%= link_to 'Category', new_category_path %></a>
+          <a class="dropdown-item" ><%= link_to 'Publisher', new_publisher_path %></a>
+        </div>
         
       </div>
-          <div class="nav-item dropdown navbar-right">
-        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" >
-            Manage New
-        </a>
-        <ul>
-          <li ><%= link_to 'Authors', authors_path %></li>
-          <li ><%= link_to 'Categories', categories_path %></li>
-          <li ><%= link_to 'Publishers', publishers_path %></li>
-        </ul>
-        
-      </div>
-  </div>
+       <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage New
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" ><%= link_to 'Authors', authors_path %></a>
+                <a class="dropdown-item" ><%= link_to 'Categories', categories_path %></a>
+                <a class="dropdown-item" ><%= link_to 'Publishers', publishers_path %></a>
+              </div>
+            </div>
 </nav>
 <header>
 <div class="container">
@@ -81,6 +82,9 @@
         <p>Copyright &copy; 2020, All Rights Reserved</p>
       </div>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
   </body>
 </html>

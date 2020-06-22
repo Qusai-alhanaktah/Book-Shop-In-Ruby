@@ -1,0 +1,15 @@
+<h1><%= @category.name %></h1>
+<div id="books-index">
+    <% @books.each_slice(4) do |book| %>
+       <div class="row">
+        <%= puts book %>
+            <% book.each do |bk| %>
+                <div class="col-md-3 col-sm-3">
+                    <h3><%= bk.title %></h3>
+                    <%= image_tag(bk.coverpath) %>
+                    <%= link_to "Read More", book_path(bk), class:"btn btn-primary" %>
+                </div>  
+            <% end %>
+        </div>
+    <% end %>
+</div>

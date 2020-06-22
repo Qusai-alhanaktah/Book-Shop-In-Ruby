@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=  @title ? @title : "Welcome" %> | Book store</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'%>
+    <%= stylesheet_link_tag  'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %> 
+    <%# <%= javascript_tag 'application', 'data-turbolinks-track': 'reload'%> 
+  </head>
+
+  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Book Store</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" >
+    <ul class="navbar-nav ">
+      <li class="active">
+        <%= link_to 'Home', root_path %>
+      </li>
+      <li>
+        <%= link_to 'About', about_path %>
+      </li>
+    </ul>
+      <div class="nav-item dropdown navbar-right">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" >
+          Add New
+        </a>
+        <ul>
+          <li ><%= link_to 'Book', new_book_path %></li>
+          <li ><%= link_to 'Author', new_author_path %></li>
+          <li ><%= link_to 'Category', new_category_path %></li>
+          <li ><%= link_to 'Publisher', new_publisher_path %></li>
+        </ul>
+        
+      </div>
+          <div class="nav-item dropdown navbar-right">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" >
+            Manage New
+        </a>
+        <ul>
+          <li ><%= link_to 'Authors', authors_path %></li>
+          <li ><%= link_to 'Categories', categories_path %></li>
+          <li ><%= link_to 'Publishers', publishers_path %></li>
+        </ul>
+        
+      </div>
+  </div>
+</nav>
+<header>
+<div class="container">
+      <h1>The Book Store <small><%=  @title ? @title : "Welcome" %></small></h1>
+</div>
+</header>
+<section>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-8">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+        <%= yield %>
+    </div>
+    <div class="col-md-4">
+        <%= render 'partials/sidebar'%>
+    </div>
+  </div>
+  
+  </div>
+</section>
+
+    <footer>
+      <div class="container">
+        <p>Copyright &copy; 2020, All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
